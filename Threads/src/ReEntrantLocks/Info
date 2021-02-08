@@ -1,0 +1,3 @@
+Solve Producer and consumer problem and train ticket problem
+
+What will happen if thread that holds lock again calls lock() method in java?
