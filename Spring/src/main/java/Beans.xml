@@ -1,0 +1,111 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:aop = "http://www.springframework.org/schema/aop"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+   
+<!--Bean Scopes :Start -->
+   <bean id = "helloWorld" class = "src.main.java.HelloWorld" scope="prototype">
+   </bean> 
+   
+   <aop:aspectj-autoproxy/>
+
+   <!-- Definition for student bean -->
+   <bean id = "student" class = "AOP.Student">
+      <property name = "name" value = "Zara" />
+      <property name = "age"  value = "11"/>      
+   </bean>
+
+   <!-- Definition for logging aspect -->
+   <bean id = "logging" class = "AOP.Logging"/> 
+   
+<!--Bean Scopes :End --> 
+   
+<!-- Bean Life Cycle  :Start-->
+   
+<!--   <bean id ="beanLifeCycle" class="beanLifecycle.BeanLifeCycle" init-method="init" destroy-method="destroy"></bean>
+   <bean class="beanLifecycle.InitPostProcesserCallback"></bean> -->
+   
+<!-- Bean Life Cycle :End -->
+   
+   
+<!-- Inheritance :Start-->
+   <!-- <bean id = "helloWorld" class = "inheritance.HelloWorld">
+      <property name = "message1" value = "Hello World!"/>
+      <property name = "message2" value = "Hello Second World!"/>
+   </bean>
+
+   <bean id ="helloIndia" class = "inheritance.HelloIndia" parent = "helloWorld">
+      <property name = "message1" value = "Hello India!"/>
+      <property name = "message3" value = "Namaste India!"/>
+   </bean> -->
+<!-- Inheritance :End-->
+
+
+<!-- Constructor Based Injection :Start-->
+  <!--  <bean id = "textEditor" class = "depandencyInjection.TextEditor">
+      
+      <constructor-arg ref ="langChecker"/>
+      <constructor-arg ref = "spellChecker"/>
+   </bean>
+ -->
+   <!-- Definition for spellChecker bean -->
+  <!--  <bean id = "spellChecker" class = "depandencyInjection.SpellChecker"></bean> -->
+  <!--  <bean id="langChecker" class= "depandencyInjection.LanguageChecker"></bean> -->
+   
+   <!-- Constructor Based Injection :End-->
+   
+   <!-- Setter Based Injection :Start--> 
+    <!-- <bean id = "textEditor" class = "depandencyInjection.TextEditor">
+    <property name="spellChecker" ref="spellChecker"></property>
+    </bean>
+    
+     <bean id = "spellChecker" class = "depandencyInjection.SpellChecker"></bean> -->
+   
+   
+  <!--  Inner Bean Injection -->
+   <bean id = "textEditor" class = "depandencyInjection.TextEditor">
+    <property name="spellChecker">
+    <bean id = "spellChecker" class = "depandencyInjection.SpellChecker"></bean>
+    </property>
+    </bean>
+   <!--  Inner Bean Injection -->
+   
+   <!-- Setter Based Injection :End-->
+   
+   <bean id="collections" class="Collections.CollectionsFile">
+   <property name ="numberList">
+      <list>
+       <value>1234</value>
+       <value>5678</value>
+      </list>
+   </property>
+   <property name="mobileSet">
+      <set>
+      <value>Iphone</value>
+      <value>Samsung</value>
+      <value>onePLus</value>
+      <value>Samsung</value>
+      </set>
+   </property>
+   <property name="addressMap">
+   <map>
+     <entry key="10" value="AJay"></entry>
+     <entry key="20" value="DJ"></entry>
+   </map>
+   </property>
+   
+   <property name="prop"> 
+   <props>
+      <prop key="100">Math</prop>
+      <prop key="90">Science</prop>
+      <prop key="98">CS</prop>
+   </props>
+   
+   </property>
+   </bean>
+</beans>

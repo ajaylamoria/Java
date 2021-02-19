@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+   <context:component-scan base-package = "MVC.controller" />
+
+   <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name = "prefix" value = "/WEB-INF/jsp/" />
+      <property name = "suffix" value = ".jsp" />
+   </bean>
+   
+   <!-- Initialization for data source -->
+   <bean id="dataSource" 
+      class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name = "driverClassName" value = "oracle.jdbc.driver.OracleDriver"/>
+      <property name = "url" value = "jdbc:oracle:thin:@ldap://oidlbr.cs.boeing.com:3097/sqisdev3,cn=oraclecontext,dc=boeingdb"/>
+      <property name = "username" value = "isisoltp"/>
+      <property name = "password" value = "j9FRlcebEQ44atOLTP"/>
+   </bean>
+
+<!-- Initialization of JdbsTemplate and inject datasource -->
+<bean id="jdbctemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+<property name="dataSource" ref="dataSource"></property>
+</bean>
+
+   <!-- Definition for studentJDBCTemplate bean -->
+  <!--  <bean id = "studentJDBCTemplate" 
+      class = "jdbc.StudentJDBCTemplate">
+      <property name = "template" ref = "jdbctemplate" /> 
+         
+   </bean> -->
+   
+   <bean id="studentDao" class="MVC.controller.dao.StudentDAOImpl">
+    <property name = "template" ref = "jdbctemplate" /> 
+   </bean>
+
+</beans>
