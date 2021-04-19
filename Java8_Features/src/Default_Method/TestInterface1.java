@@ -6,14 +6,16 @@ import java.util.Base64;
 
 public class TestInterface1 implements Interface1{
 
-	@Override
 	public static void main(String[] args) {
-//		Interface1 obj = new TestInterface1();
-//		System.out.println(obj.show());
-//		obj.display();
+		Interface1 obj = new TestInterface1();
+		obj.display();
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
 		
-		
-      }
+	}
 		
 		
 	

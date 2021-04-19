@@ -7,19 +7,21 @@ public class ReverseLinkedList {
 		LinkedList list = new LinkedList();
 		list.add(10);
 		list.add(20);
+		list.add(20);
 		list.add(10);
 		list.show(list.head);
+		System.out.println(removeElements(list.head,20));
 		System.out.println(list.head.data);
 		LinkedList listOld = new LinkedList();
-		LinkedList.Node n = list.head;
+		LinkedList.NodeTest n = list.head;
 		while(n!=null){
 			listOld.add(n.data);
 			n = n.next;
 		}
 		
-		LinkedList.Node prev= null;
-		LinkedList.Node current = list.head;
-		LinkedList.Node next =null;
+		LinkedList.NodeTest prev= null;
+		LinkedList.NodeTest current = list.head;
+		LinkedList.NodeTest next =null;
 		
 		while(current!=null){
 			next = current.next;
@@ -31,5 +33,31 @@ public class ReverseLinkedList {
 		list.show(prev);
 		
 	}
+	
+	public static LinkedList.NodeTest removeElements(LinkedList.NodeTest head, int val) {
+		LinkedList.NodeTest node = head;
+        
+		LinkedList.NodeTest prev = null;
+        
+        while(node!=null){
+            if(val==head.data){
+                head = node.next;
+                node = node.next;
+               
+                
+            }else if(val==node.data){
+                    prev.next = node.next;
+                    prev = prev.next; 
+                    node = node.next;
+                }
+            else {
+            	 prev = node; 
+                 node = node.next;
+            }
+            
+            
+        }
+        return node;
+    }
 }
  

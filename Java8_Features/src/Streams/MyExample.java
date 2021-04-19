@@ -163,7 +163,7 @@ public class MyExample {
       */
     
     Stream.iterate(0, n->n+1).limit(10).forEach(val->System.out.println("Limit Fun:-"+val));
-    Stream.iterate(0, n->n+1).skip(10).forEach(val->System.out.println("Skip Fun:-"+val));
+    Stream.iterate(0, n->n+1).limit(10).skip(5).forEach(val->System.out.println("Skip Fun:-"+val));
     
     
     

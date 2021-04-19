@@ -18,6 +18,7 @@ public class LevelOrder {
 		tree.root.right.left = new TreeNode(15);
 		tree.root.right.right = new TreeNode(7);
 		List<List<Integer>> level =levelOrder(tree.root);
+		System.out.println("Level:-"+level);
 		Iterator<List<Integer>> itr = level.iterator();
 		List<Integer> sub = new ArrayList<>();
 		List<Double> result = new ArrayList<>();

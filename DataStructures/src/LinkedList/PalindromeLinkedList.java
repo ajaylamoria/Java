@@ -10,15 +10,15 @@ public class PalindromeLinkedList {
 		list.show(list.head);
 		System.out.println(list.head.data);
 		LinkedList listOld = new LinkedList();
-		LinkedList.Node n = list.head;
+		LinkedList.NodeTest n = list.head;
 		while(n!=null){
 			listOld.add(n.data);
 			n = n.next;
 		}
 		
-		LinkedList.Node prev= null;
-		LinkedList.Node current = list.head;
-		LinkedList.Node next =null;
+		LinkedList.NodeTest prev= null;
+		LinkedList.NodeTest current = list.head;
+		LinkedList.NodeTest next =null;
 		
 		while(current!=null){
 			next = current.next;
@@ -29,7 +29,7 @@ public class PalindromeLinkedList {
 		System.out.println();
 		list.show(prev);
 		boolean flag = true;
-		LinkedList.Node oldhead = listOld.head;
+		LinkedList.NodeTest oldhead = listOld.head;
 		while(oldhead!=null && prev!=null){
 			if(oldhead.data!=prev.data){
 				flag= false;

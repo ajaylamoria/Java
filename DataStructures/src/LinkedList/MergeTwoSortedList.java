@@ -29,8 +29,8 @@ public class MergeTwoSortedList {
 		
 		LinkedList C = new LinkedList();
 		
-		LinkedList.Node a1 = A.head;
-		LinkedList.Node b1 = B.head;
+		LinkedList.NodeTest a1 = A.head;
+		LinkedList.NodeTest b1 = B.head;
 	
 		
 		while(true){

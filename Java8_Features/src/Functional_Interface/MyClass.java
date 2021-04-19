@@ -5,7 +5,7 @@ public class MyClass {
 	public static void main(String[] args) {
 		
 		/*Implement Functional Interface Using Lambda Expression*/
-		MyInterface my = ()->{
+		MyInterface my = (a)->{
 			System.out.println("HI");
 		};
 		
@@ -20,7 +20,7 @@ public class MyClass {
 		};*/
 		
 		//my1.display();
-		my.display();
+		my.display(10);
 		my.show();
 		
 		MyInterface.view();
